@@ -1,0 +1,29 @@
+$gray: #444;
+$white: rgb(216, 209, 209);
+
+body{
+    background-color: $gray;
+    color: white;
+}
+
+main{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+.button{
+    background-color: $white;
+    border: 0px solid;
+    border-radius: 9999px;
+}
+.button:hover{
+    cursor: pointer;
+}
+
+#addTask{
+    font-size: 14px;
+    height: 25px;
+    width: 25px;
+    color: black;
+}
