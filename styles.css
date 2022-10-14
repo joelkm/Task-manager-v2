@@ -1,37 +1,17 @@
-body {
-  background-color: #444;
-  color: white;
-}
+/* Error: expected ";".
+ *    ,
+ * 38 |     display: grid;
+ *    |            ^
+ *    '
+ *   styles.scss 38:12  root stylesheet */
 
-main {
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: 'Error: expected ";".\a    \2577 \a 38 \2502      display: grid;\d\a    \2502             ^\a    \2575 \a   styles.scss 38:12  root stylesheet';
 }
-
-.button {
-  background-color: rgb(216, 209, 209);
-  border: 0px solid;
-  border-radius: 9999px;
-}
-
-.button:hover {
-  cursor: pointer;
-}
-
-#addTask {
-  font-size: 14px;
-  height: 25px;
-  width: 25px;
-  color: black;
-}
-
-.task {
-  background-color: antiquewhite;
-  width: 200px;
-  height: 100px;
-  border: 2px solid black;
-  border-radius: 9px;
-}
-
-/*# sourceMappingURL=styles.css.map */

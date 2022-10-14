@@ -5,7 +5,7 @@ class Task extends HTMLElement{
     }
     
     connectedCallback(){
-        this.innerHTML="<div class='task'></div>"
+        this.innerHTML="<div class='task'><h3>title</h3><div class=managbuttons><button id class= "button">+</button></div></div>"
     }
 }
 
