@@ -15,6 +15,19 @@
         <p>Click the + button to add a task. You can edit and remove created tasks</p>
         <div id="taskList"></div>
         <button id="addTask" class= "button">+</button>
+        <form action="" id="taskCreation">
+            <h2>Submit your task</h2>
+            <label for="">Title:</label>
+            <input type="text">
+            <label for="">Description:</label>
+            <textarea name="" id="input" cols="30" rows="10"></textarea>
+            <label for="">Date: <span>type it or click the calendar icon</span></label>
+            <input type="date">
+            <label for="">Time: <span>type it or click the clock icon</span></label>
+            <input type="time">
+            <p id="msg" style="color: red"></p>
+            <button type="submit">Post</button>
+        </form>
     </main>
 </body>
 </html>

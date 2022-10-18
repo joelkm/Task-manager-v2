@@ -1,17 +1,59 @@
-/* Error: expected ";".
- *    ,
- * 38 |     display: grid;
- *    |            ^
- *    '
- *   styles.scss 38:12  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: 'Error: expected ";".\a    \2577 \a 38 \2502      display: grid;\d\a    \2502             ^\a    \2575 \a   styles.scss 38:12  root stylesheet';
+body {
+  background-color: #444;
+  color: white;
+  font-family: sans-serif;
 }
+
+main {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+
+.button {
+  background-color: rgb(216, 209, 209);
+  border: 0px solid;
+  border-radius: 9999px;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+#addTask {
+  font-size: 14px;
+  height: 25px;
+  width: 25px;
+  color: black;
+}
+
+#taskCreation {
+  position: absolute;
+  background-color: rgb(128, 70, 0);
+  align-self: center;
+  border: 2px solid black;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.task {
+  background-color: antiquewhite;
+  width: 200px;
+  height: 100px;
+  border: 2px solid black;
+  border-radius: 9px;
+  display: grid;
+  grid-template-columns: 5% 95%;
+  grid-template-rows: 450px 100%;
+  grid-template-areas: "navigation navigation" "aside content";
+}
+
+label span {
+  font-weight: lighter;
+  font-style: italic;
+  font-size: 10px;
+}
+
+/*# sourceMappingURL=styles.css.map */
