@@ -1,4 +1,5 @@
-html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -12,16 +13,17 @@ html lang="en">
 <body>
   <h1>Social Media App</h1>
   <main>
-    <div>
-        <form action="">
+    <div class="left">
+        <form id="form">
             <label for="">Submit your task</label>
             <br>
-            <input type="text">
+            <textarea name="" id="input" cols="30" rows="10"></textarea>
+            <p id="msg"></p>
             <br>
-            <button type="submit"></button>
+            <button type="submit">Post</button>
         </form>
     </div>
-    <div>
+    <div class="right">
       <h3>Your tasks</h3>
       <div id="tasks">
       </div>

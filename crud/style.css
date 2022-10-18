@@ -1,5 +1,32 @@
-main{
-    display: flex
+body {
+    font-family: sans-serif;
+    margin: 0 50px;
 }
 
+main{
+    display: flex;
+    gap: 50px;
+}
 
+#msg{
+    color: red;
+}
+
+#tasks {
+    width: 400px;
+}
+  
+#tasks div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+  
+.options {
+    display: flex;
+    gap: 25px;
+}
+  
+i {
+    cursor: pointer;
+}
