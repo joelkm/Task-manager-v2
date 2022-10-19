@@ -7,15 +7,17 @@
     <title>To do list app</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="sources/logo.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     <script defer type="text/javascript" src="app.js"></script>
 </head>
 <body>
     <main>
-        <h1>To Do List</h1>
+        <h1>To Do List <i class="fa-solid fa-xmark"></i></h1>
         <p>Click the + button to add a task. You can edit and remove created tasks</p>
         <div id="taskList"></div>
         <button id="addTask" class= "button">+</button>
         <form action="" id="taskCreation">
+            <button class="close" onclick="closeMenu"><i class="fa-solid fa-xmark-large"></i></button>
             <h2>Submit your task</h2>
             <label for="">Title:</label>
             <input class="input" type="text">

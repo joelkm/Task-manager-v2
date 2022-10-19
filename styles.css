@@ -20,6 +20,10 @@ main {
   cursor: pointer;
 }
 
+.close {
+  height: 20px;
+}
+
 #addTask {
   font-size: 14px;
   height: 25px;
