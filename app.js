@@ -3,6 +3,10 @@ const add = document.getElementById('addTask');
 const menu = document.getElementById('taskCreation');
 const msg = document.getElementById('msg');
 
+const inputs = document.getElementsByClassName('input');
+
+let data={}
+
 
 
 /*class Task extends HTMLElement{
@@ -41,8 +45,8 @@ menu.addEventListener('submit', (e)=>{
 });
 
 function formValidation(){
-    if (input.value==="") {
-        msg.innerHTML = "Post cannot be blank";
+    if (inputs[0].value==="") {
+        msg.innerHTML = "Title cannot be blank";
         console.log("failure");
     }
     else{
@@ -51,9 +55,13 @@ function formValidation(){
         console.log("successs");
     }
 }
-/*
+
 function acceptData(){
-    data["text"] = .value;
+    data["title"] = inputs[0].value;
+    data["info"] = inputs[1].value;
+    data["date"] = inputs[2].value;
+    data["time"] = inputs[3].value;
+    data["important"] = inputs[4].value;
     console.log(data);
-    createTask();
-}*/
+    /*createTask();*/
+}
