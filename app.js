@@ -5,11 +5,20 @@ const msg = document.getElementById('msg');
 
 const inputs = document.getElementsByClassName('input');
 
-let data={}
+let tasknum = 0;
+const tasks=[]; //For them to have constant type
 
 
-
-/*class Task extends HTMLElement{
+class Task{
+    constructor(title, info, date, time){
+        this.title = title;
+        this.info = info;
+        this.date = date;
+        this.time = time;
+    }
+}
+/*
+class Task extends HTMLElement{
 
     constructor (){
         super()
@@ -57,11 +66,13 @@ function formValidation(){
 }
 
 function acceptData(){
-    data["title"] = inputs[0].value;
-    data["info"] = inputs[1].value;
-    data["date"] = inputs[2].value;
-    data["time"] = inputs[3].value;
-    data["important"] = inputs[4].value;
-    console.log(data);
+    tasks[tasknum]= new Task(inputs[0].value, inputs[1].value, inputs[2].value, inputs[3].value);
+    console.log(tasks[tasknum]);
+    tasknum++;
+    console.log(tasknum+'tasks in total');
     /*createTask();*/
 }
+/*
+createTask(){
+
+}*/
