@@ -26,28 +26,14 @@ class Task{
         </div>
         `
     }
-}
-/*
-class Task extends HTMLElement{
+    delete(){
+        
+    }
+    update(){
 
-    constructor (){
-        super()
     }
     
-    connectedCallback(){
-        this.innerHTML=`
-        <div class='task'>
-        <h3>title</h3>
-        <div class=managbuttons>
-        <button id class= "button">+</button>
-        </div>
-        </div>
-        `
-    }
 }
-
-window.customElements.define('task-element', Task);
-*/
 
 
 add.addEventListener('click', newTask);
