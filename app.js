@@ -2,6 +2,7 @@ const taskList = document.getElementById('taskList');
 const add = document.getElementById('addTask');
 const menu = document.getElementById('taskCreation');
 const msg = document.getElementById('msg');
+const close = document.getElementById('close');
 
 const inputs = document.getElementsByClassName('input');
 
@@ -69,6 +70,8 @@ function createTask(){
     tasknum++;
     console.log(tasknum+' tasks in total');
 }
+
+close.addEventListener('click', closeMenu);
 
 function closeMenu(){
     for(i=0;i<4;i++){

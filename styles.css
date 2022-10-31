@@ -1,5 +1,5 @@
 body {
-  background-color: #444;
+  background-color: #201E1F;
   color: white;
   font-family: sans-serif;
 }
@@ -11,7 +11,7 @@ main {
 }
 
 .button {
-  background-color: rgb(216, 209, 209);
+  background-color: #F7F9F9;
   border: 0px solid;
   border-radius: 9999px;
 }
@@ -20,8 +20,32 @@ main {
   cursor: pointer;
 }
 
-.close {
-  height: 20px;
+#close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 50px;
+  height: 50px;
+  font-size: 0;
+  cursor: pointer;
+}
+
+#close:before,
+#close:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #F0F0F0;
+  transform: rotate(45deg) translate(-50%, -50%);
+  transform-origin: top left;
+  content: "";
+  width: 2px;
+  height: 23px;
+}
+
+#close:after {
+  transform: rotate(-45deg) translate(-50%, -50%);
 }
 
 #addTask {
