@@ -18,29 +18,27 @@ class Task{
         this.time = time;
         this.idnum = idnum;
     }
-    
-    render(title){
+    render(title, idnum){
         taskList.innerHTML+=`
-        <div class='task'>
+        <div id='${idnum}' class='task'>
         <h3>${title}</h3>
-        </div>
+        <p>${toString(idnum)}</p>
+        <button onclick='removal(${idnum})'>delete</button>
         </div>
         `
     }
-    delete(){
-        
-    }
+    /*delete(idnum){
+        this.remove();
+    }*/
     update(){
 
     }
-    
 }
 
 
 add.addEventListener('click', newTask);
 
 function newTask(){
-    console.log('click');
     menu.style.visibility= 'visible';
 }
 
@@ -57,14 +55,15 @@ function formValidation(){
     }
     else{
         msg.innerHTML = "";
-        createTask();
         console.log("successs");
+        createTask();
         closeMenu();
     }
 }
 
 function createTask(){
     tasks[tasknum]= new Task(inputs[0].value, inputs[1].value, inputs[2].value, inputs[3].value, tasknum);
+    console.log(tasknum);
     console.log(tasks[tasknum]);
     tasks[tasknum].render(tasks[tasknum].title);
     tasknum++;
@@ -78,4 +77,11 @@ function closeMenu(){
         inputs[i].value='';
     }
     menu.style.visibility= 'hidden';
+}
+
+function removal(idnum){
+    console.log('works');
+    console.log(document.getElementById(toString(idnum)));
+    let selectedTask=document.getElementById(toString(idnum));
+    selectedTask=``;
 }
