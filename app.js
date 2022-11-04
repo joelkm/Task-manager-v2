@@ -22,13 +22,13 @@ class Task{
         taskList.innerHTML+=`
         <div id='${idnum}' class='task'>
         <h3>${title}</h3>
-        <p>${toString(idnum)}</p>
-        <button onclick='removal(${idnum})'>delete</button>
+        <button onClick="removal(this)">delete</button>
+        <button onClick="">edit</button> 
         </div>
         `
     }
-    /*delete(idnum){
-        this.remove();
+    /*delete(e){
+        
     }*/
     update(){
 
@@ -79,9 +79,7 @@ function closeMenu(){
     menu.style.visibility= 'hidden';
 }
 
-function removal(idnum){
+function removal(e){
     console.log('works');
-    console.log(document.getElementById(toString(idnum)));
-    let selectedTask=document.getElementById(toString(idnum));
-    selectedTask=``;
+    e.parentElement.remove();
 }
