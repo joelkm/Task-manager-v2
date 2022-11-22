@@ -1,0 +1,29 @@
+{
+  "name": "api-rest-nodejs",
+  "version": "1.0.0",
+  "description": "Api of To Do List project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoelKM/to-do-list.me.git"
+  },
+  "author": "Joel Kassim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JoelKM/to-do-list.me/issues"
+  },
+  "homepage": "https://github.com/JoelKM/to-do-list.me#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "connect-multiparty": "^2.2.0",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
