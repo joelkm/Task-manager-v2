@@ -79,24 +79,7 @@ function removal(e){
 }
 
 function edit(e){
-    console.log('works')
-    this.parentElement.innerHTML=`
-    <form action="" id="taskCreation">
-            <div id="close"></div>
-            <h2>Submit your task</h2>
-            <label for="">Title:</label>
-            <input class="input" type="text">
-            <p id="msg" style="color: red"></p>
-            <label for="">Description:</label>
-            <textarea name="" class="input" cols="30" rows="10"></textarea>
-            <label for="">Date: <span>type it or click the calendar icon</span></label>
-            <input class="input" type="date">
-            <label for="">Time: <span>type it or click the clock icon</span></label>
-            <input class="input" type="time">
-            <!--<label for="">Important <span><input class="input" type="checkbox"></span></label>-->
-            <button type="submit">Post</button>
-    `;/*
-    e.parentElement.innerHTML=`
-    
-    `*/
+    console.log('works');
+    removal(e);
+    newTask();
 }
