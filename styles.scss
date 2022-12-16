@@ -8,7 +8,7 @@
 body{
     background-color: $black;
     color: white;
-    font-family: sans-serif;
+    font-family: Raleway, sans-serif;
 }
 
 main{
@@ -42,7 +42,7 @@ main{
   position: absolute;
   top: 50%;
   left: 50%;
-  background-color: #F0F0F0;
+  background-color: #0a0a0a;
   transform: rotate(45deg) translate(-50%, -50%);
   transform-origin: top left;
   content: '';
@@ -64,30 +64,42 @@ main{
 
 #taskCreation{
     position: absolute;
-    background-color: rgb(128, 70, 0);
+    background-color: rgb(182, 182, 182);
     align-self: center;
-    border: 2px solid black;
+    box-shadow: 0px 2px 2px rgb(27, 27, 27);
+    border-radius: 5px;
     visibility: hidden;
     display: flex;
     flex-direction: column;
     padding: 20px;
+    color: #201E1F;
 }
 
 .task{
-    background-color: antiquewhite;
-    width: 200px;
-    height: 100px;
+    background-color: rgb(212, 212, 212);
+    color: #201E1F;
+    width: 60vw;
+    height: auto;
     border: 2px solid black;
     border-radius: 9px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+.managmentButtons{
+    display: flex;
+    flex-direction: row;
+    align-self: baseline;
+    justify-content: space-evenly;
     button{
-        height: 40%;
-        width: 40%;
-        justify-self: center;
+        height: 50px;
+        width: 20vw;
+        border: none;
+        background: none;
+        padding: 0px;
     }
 }
-
 label{
 
     span{

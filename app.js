@@ -18,12 +18,16 @@ class Task{
         this.time = time;
         this.idnum = idnum;
     }
-    render(title, idnum){
+    render(title, idnum, date, time, info){
         taskList.innerHTML+=`
         <div id='${idnum}' class='task'>
-        <h3>${title}</h3>
-        <button onClick="removal(this)">delete</button>
-        <button onClick="edit(this)">edit</button> 
+            <h2>${title}</h2>
+            <p>Date: ${date} Time: ${time}</p>
+            <p>${info}</p>
+            <div class='managmentButtons'>
+                <button onClick="removal(this)">delete</button>
+                <button onClick="edit(this)">edit</button> 
+            </div>
         </div>
         `;
     }
@@ -75,7 +79,7 @@ function closeMenu(){
 
 function removal(e){
     console.log('works');
-    e.parentElement.remove();
+    e.parentElement.parentElement.remove();
 }
 
 function edit(e){
