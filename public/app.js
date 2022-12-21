@@ -6,6 +6,44 @@ const close = document.getElementById('close');
 
 const inputs = document.getElementsByClassName('input');
 
+add.addEventListener('click', newTask);
+
+function newTask(){
+    menu.style.visibility= 'visible';
+}
+
+menu.addEventListener('submit', (e, inputs)=>{
+    e.preventDefault();
+    console.log("POST request sent to the server");
+    fetch('', { //////OJOOOOOOOOOOOOOOOOOOOO
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            "id": inputs.length,
+            "title": inputs[0],
+            "description": inputs[1],
+            "date": inputs[2],
+            "time": inputs[3]
+        })
+    })
+    .then(response => response.json())
+    .then(response => console.log(JSON.stringify(response)))});
+
+close.addEventListener('click', closeMenu);
+
+function closeMenu(){
+    for(i=0;i<4;i++){
+        inputs[i].value='';
+    }
+    menu.style.visibility= 'hidden';
+}
+
+
+
+/* TASK LOGIC ON BROWSER
 let tasknum = 0;
 const tasks=[]; //For them to have constant type
 
@@ -32,20 +70,9 @@ class Task{
         `;
     }
 }
+*/
 
-
-add.addEventListener('click', newTask);
-
-function newTask(){
-    menu.style.visibility= 'visible';
-}
-
-menu.addEventListener('submit', (e)=>{
-    e.preventDefault();
-    console.log("post request");
-    formValidation();
-});
-
+/* FORM VALIDATION ON BROWSER
 function formValidation(){
     if (inputs[0].value==="") {
         msg.innerHTML = "Title cannot be blank";
@@ -66,17 +93,10 @@ function createTask(){
     tasks[tasknum].render(tasks[tasknum].title);
     tasknum++;
     console.log(tasknum+' tasks in total');
-}
+}*/
 
-close.addEventListener('click', closeMenu);
 
-function closeMenu(){
-    for(i=0;i<4;i++){
-        inputs[i].value='';
-    }
-    menu.style.visibility= 'hidden';
-}
-
+/* TASK MANAGMENT ON BROWSER
 function removal(e){
     console.log('works');
     e.parentElement.parentElement.remove();
@@ -86,4 +106,4 @@ function edit(e){
     console.log('works');
     removal(e);
     newTask();
-}
+}*/
