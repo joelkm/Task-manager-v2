@@ -2,4 +2,4 @@ const tasks = [
 
 ];
 
-module.exports = tasks;
+module.exports = {tasks};

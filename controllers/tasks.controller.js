@@ -1,4 +1,4 @@
-const model = require('../models/tasks.model.js');
+const model = require('../models/tasks.model');
 
 function postTask(req, res) {
     
@@ -12,7 +12,7 @@ function postTask(req, res) {
 
     model.push(newTask);
 
-    getTask();
+    getTask(res, newTask);
 }
 
 
@@ -25,3 +25,5 @@ function getTask(res, newTask) {
         res.status(404);
     }
 }
+
+module.exports = {postTask};

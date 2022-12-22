@@ -15,18 +15,17 @@ function newTask(){
 menu.addEventListener('submit', (e, inputs)=>{
     e.preventDefault();
     console.log("POST request sent to the server");
-    fetch('', { //////OJOOOOOOOOOOOOOOOOOOOO
+    fetch('localhost:3000', { //////OJOOOOOOOOOOOOOOOOOOOO
         method: 'POST',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            "id": inputs.length,
-            "title": inputs[0],
+            /*"title": inputs[0],
             "description": inputs[1],
             "date": inputs[2],
-            "time": inputs[3]
+            "time": inputs[3]*/
         })
     })
     .then(response => response.json())
