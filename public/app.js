@@ -12,24 +12,31 @@ function newTask(){
     menu.style.visibility= 'visible';
 }
 
-menu.addEventListener('submit', (e, inputs)=>{
+menu.addEventListener('submit', (e)=>{
     e.preventDefault();
-    console.log("POST request sent to the server");
-    fetch('localhost:3000', { //////OJOOOOOOOOOOOOOOOOOOOO
+    console.log("POST request sent to the server" + inputs[0].value);
+    fetch('http://localhost:3000/', { //////OJOOOOOOOOOOOOOOOOOOOO
         method: 'POST',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            /*"title": inputs[0],
-            "description": inputs[1],
-            "date": inputs[2],
-            "time": inputs[3]*/
+            "title": inputs[0].value,
+            "description": inputs[1].value,
+            "date": inputs[2].value,
+            "time": inputs[3].value
         })
     })
     .then(response => response.json())
-    .then(response => console.log(JSON.stringify(response)))});
+    .then(data => {
+        const task = data;
+        console.log(task)
+        renderTask(task.id, task.title, task.description, task.date, task.time);
+        closeMenu();
+    })
+});
+    
 
 close.addEventListener('click', closeMenu);
 
@@ -40,6 +47,23 @@ function closeMenu(){
     menu.style.visibility= 'hidden';
 }
 
+function renderTask(id, title, description, date, time){
+    taskList.innerHTML+=`
+    <div id='task${id}' class='task'>
+        <h2>${title}</h2>
+        <p>Date: ${date} Time: ${time}</p>
+        <p>${description}</p>
+        <div class='managmentButtons'>
+            <button class="deleteButton">delete</button>
+            <button onClick="editButton">edit</button> 
+        </div>
+    </div>
+    `;
+}
+
+function eraseTask(id) {
+    const task = document.getElementById('id');
+}
 
 
 /* TASK LOGIC ON BROWSER
