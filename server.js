@@ -29,6 +29,7 @@ app.post('/', (req, res) => {
 });
 
 app.delete('/', (req, res) => {
+    console.log('ha llegao')
     taskController.deleteTask(req, res);
 });
 

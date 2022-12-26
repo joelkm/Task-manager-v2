@@ -1,3 +1,4 @@
+const e = require('express');
 const model = require('../models/tasks.model');
 
 
@@ -26,7 +27,7 @@ function getTask(res, newTask) {
         console.log('Success');
     } else {
         res.status(404);
-        console.log('fail lmao')
+        console.log('Error');
     }
 }
 
@@ -34,10 +35,13 @@ function deleteTask(req, res) {
     const taskId = req.body.id;
     model.tasks.splice(taskId, 1);
     if(req.body.managment === "edit") {
-        
+        console.log('editing...')
     } else {
-
+        model.tasks.forEach((e, index) => {
+            console.log(index);
+            console.log(e);
+        })
     }
 }
 
-module.exports = {postTask};
+module.exports = {postTask, deleteTask};

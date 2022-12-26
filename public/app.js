@@ -34,7 +34,47 @@ menu.addEventListener('submit', (e)=>{
         console.log(task)
         renderTask(task.id, task.title, task.description, task.date, task.time);
         closeMenu();
-    })
+        const edits = document.querySelectorAll('.editButton')
+        edits.forEach((element) => {
+            element.addEventListener('click', (e) => {
+                fetch('http://localhost:3000/', {
+                    method: 'DELETE',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        "id": element.parentElement.parentElement.id,
+                        "managment": "edit"
+                    })
+                })
+                .then(response => response.json())
+                .then(() => {
+                    element.parentElement.parentElement.innerHTML='';
+                })
+            }); 
+        });
+        const deletes = document.querySelectorAll('.deleteButton')
+        deletes.forEach((element) => {
+            element.addEventListener('click', (e) => {
+                fetch('http://localhost:3000/', {
+                    method: 'DELETE',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        "id": element.parentElement.parentElement.id,
+                        "managment": "delete"
+                    })
+                    .then(response => response.json())
+                    .then(() => {
+                        element.parentElement.parentElement.innerHTML='';
+                    })
+                });
+            });
+        });
+    });
 });
     
 
@@ -55,11 +95,14 @@ function renderTask(id, title, description, date, time){
         <p>${description}</p>
         <div class='managmentButtons'>
             <button class="deleteButton">delete</button>
-            <button onClick="editButton">edit</button> 
+            <button class="editButton">edit</button> 
         </div>
     </div>
     `;
+
 }
+
+
 
 function eraseTask(id) {
     const task = document.getElementById('id');
