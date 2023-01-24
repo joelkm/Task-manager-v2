@@ -13,8 +13,8 @@ app.use(morgan('combined'));
 app.use(json());
 //app.use(express.static(path.join(__dirname, "..", "..", "public")));
 
-app.use('/tasks' ,tasksRouter);
 app.use('/users' ,usersRouter);
+app.use('/tasks' ,tasksRouter);
 
 /*app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, "..", "public", "index.html"))

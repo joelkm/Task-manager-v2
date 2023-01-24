@@ -1,17 +1,22 @@
-import { find, create, deleteOne } from './users.mongo';
+import { find, create} from './users.mongo';
 
-async function getUserById(userId) {
+async function getUserByUsername(username) {
     const user = await find({username}, '_id username') 
     if (user) {
         return user;
     }
     else {
-        return false
+        return false;
     }
 } 
 
-async function addNewUser(user) {
+async function saveUser(user) {
     try {
+        if(find({username: user.username})) {
+            console.error('Username already exists');
+            return false;
+        }
+
         const newUser = await create({
             name: user.username
         })
@@ -23,6 +28,6 @@ async function addNewUser(user) {
 }
 
 export default {
-    getUserById,
-    addNewUser
+    getUserByUsername,
+    saveUser
 }
