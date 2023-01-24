@@ -99,7 +99,6 @@ function renderTask(id, title, description, date, time){
         </div>
     </div>
     `;
-
 }
 
 

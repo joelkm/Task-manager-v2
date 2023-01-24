@@ -1,26 +1,20 @@
 {
   "name": "to-do-list.me",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "I'm currently solving some callback hell issues surrounding the \"Edit\" and \"Delete\" functions. The app will be back live when everything is fixed.",
+  "main": "index.js",
   "scripts": {
-    "watch": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JoelKM/to-do-list.me.git"
   },
-  "author": "JoelKM",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JoelKM/to-do-list.me/issues"
   },
-  "homepage": "https://github.com/JoelKM/to-do-list.me#readme",
-  "dependencies": {
-    "express": "^4.18.2"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.20"
-  }
+  "homepage": "https://github.com/JoelKM/to-do-list.me#readme"
 }
