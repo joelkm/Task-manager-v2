@@ -3,6 +3,7 @@ import { find, create, findByIdAndUpdate, deleteOne } from './users.mongo';
 async function getTasksFromUserId (userId) {
     const tasks = await find({user: userId}, '_id name description when important') 
     if (!tasks) {
+        console.log('No tasks found')
         return false;
     }
     return tasks;
@@ -33,7 +34,7 @@ async function editTaskById (taskId, newTaskInfo) {
             console.error('Task was not updated');
             return false; 
         }
-        return editedBlog;
+        return editedTask;
     } catch (err) {
         console.error(`Could not update task: ${err}`);
         return false;

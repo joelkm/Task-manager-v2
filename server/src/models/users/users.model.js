@@ -1,5 +1,13 @@
 import { find, create} from './users.mongo';
 
+async function existsUserWithId(userId) {
+    if(find({_id: userId})) return true;
+    else {
+        console.error('UserId does not match any existing ID');
+        return false;
+    }
+}
+
 async function getUserByUsername(username) {
     const user = await find({username}, '_id username') 
     if (user) {

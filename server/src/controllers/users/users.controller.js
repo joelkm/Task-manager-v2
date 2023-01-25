@@ -1,25 +1,28 @@
-import { response } from 'express';
 import { getUserByUsername, saveUser } from '../../models/users/users.model';
 
 async function httpGetUserByUsername (req, res) {
-    username = req.body.username;
-    response = await getUserByUsername(username);
+    const username = req.body.username;
+    const user = await getUserByUsername(username);
 
-    if(!response) res.status(404);
+    if(!user) return res.status(404);
     
-    res.status(200).json(response);
+    return res.status(200).json(user);
 }
 
 async function httpSaveUser (req, res) {
-    user = req.body;
+    const user = req.body;
 
-    response = await saveUser(user);
+    if(!user.username) return res.status(400).json({
+            error: 'No username provided'
+        });
 
-    if(!response) res.status(400).json({
+    user = await saveUser(user);
+
+    if(!user) return res.status(400).json({
         error: 'User was not created'
     });
 
-    res.status(201).json(response);
+    return res.status(201).json(user);
 }
 
 export default {
