@@ -1,11 +1,11 @@
-import { Schema as _Schema, model } from 'mongoose';
+const mongoose = require('mongoose');
 
-const tasksSchema = new _Schema({
-    user: [{ type: Schema.Types.ObjectId, ref: 'user' }],
+const tasksSchema = new mongoose.Schema({
+    user: [{ type: mongoose.Schema.Types.ObjectId, ref: 'user' }],
     name: String,
     description: String,
     when: Date,
     important: Boolean
 });
 
-export default model('task', tasksSchema);
+module.exports = mongoose.model('task', tasksSchema);

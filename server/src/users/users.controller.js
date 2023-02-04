@@ -1,4 +1,4 @@
-import { getUserByUsername, saveUser } from '../../models/users/users.model';
+const { getUserByUsername, saveUser } = require('./users.model');
 
 async function httpGetUserByUsername (req, res) {
     const username = req.body.username;
@@ -25,7 +25,7 @@ async function httpSaveUser (req, res) {
     return res.status(201).json(user);
 }
 
-export default {
+module.exports = {
     httpGetUserByUsername,
     httpSaveUser
 }

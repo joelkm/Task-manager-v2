@@ -1,7 +1,7 @@
-import { find, create} from './users.mongo';
+const users = require('./users.mongo');
 
 async function existsUserWithId(userId) {
-    if(find({_id: userId})) return true;
+    if(users.find({_id: userId})) return true;
     else {
         console.error('UserId does not match any existing ID');
         return false;
@@ -9,7 +9,7 @@ async function existsUserWithId(userId) {
 }
 
 async function getUserByUsername(username) {
-    const user = await find({username}, '_id username') 
+    const user = await users.find({username}, '_id username') 
     if (user) {
         return user;
     }
@@ -20,12 +20,12 @@ async function getUserByUsername(username) {
 
 async function saveUser(user) {
     try {
-        if(find({username: user.username})) {
+        if(users.find({username: user.username})) {
             console.error('Username already exists');
             return false;
         }
 
-        const newUser = await create({
+        const newUser = await users.create({
             name: user.username
         })
         return newUser;
@@ -35,7 +35,8 @@ async function saveUser(user) {
     }
 }
 
-export default {
+module.exports = {
+    existsUserWithId,
     getUserByUsername,
     saveUser
 }

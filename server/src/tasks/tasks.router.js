@@ -1,11 +1,11 @@
-import { Router } from 'express';
-import { httpGetTasksFromUserId, httpAddNewTAsk, httpEditTaskById, httpDeleteTaskById } from './tasks.controller';
+const { Router } = require('express');
+const { httpGetTasksFromUserId, httpAddNewTask, httpEditTaskById, httpDeleteTaskById } = require('./tasks.controller');
 
 const tasksRouter = Router();
 
 tasksRouter.get('/:userId', httpGetTasksFromUserId);
-tasksRouter.post('/', httpAddNewTAsk);
+tasksRouter.post('/', httpAddNewTask);
 tasksRouter.put('/:id', httpEditTaskById);
 tasksRouter.delete('/:id', httpDeleteTaskById);
 
-export default tasksRouter;
+module.exports = tasksRouter;

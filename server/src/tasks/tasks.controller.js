@@ -1,5 +1,5 @@
-import { getTasksFromUserId, addNewTask, editTaskById, deleteTaskById } from '../../models/tasks/tasks.model';
-import { existsUserWithId } from '../../models/users/users.model';
+const { getTasksFromUserId, addNewTask, editTaskById, deleteTaskById } = require('./tasks.model');
+const { existsUserWithId } = require('../users/users.model');
 
 async function httpGetTasksFromUserId (req, res) {
     const userId = req.params.userId;
@@ -62,7 +62,7 @@ async function httpDeleteTaskById (req, res) {
     return res.status(200).json(deletedTask)
 }
 
-export default {
+module.exports = {
     httpGetTasksFromUserId,
     httpAddNewTask,
     httpEditTaskById,

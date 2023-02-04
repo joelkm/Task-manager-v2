@@ -1,25 +1,24 @@
-import { createServer } from 'http';
-import { connection, connect } from 'mongoose';
+const http = require('http');
+const mongoose = require('mongoose');
 
 // const MONGO_URL = 'mongodb+srv://retink-task:retink@cluster0.dklxm8g.mongodb.net/retink-task?retryWrites=true&w=majority'
 
-
-import app from './app';
+const app = require('./config/app');
 
 const PORT = process.env.PORT || 8000;
 
-const server = createServer(app);
+const server = http.createServer(app);
 
-connection.once('open', () => {
+mongoose.connection.once('open', () => {
     console.log('Connection ready');
 });
 
-connection.on('error', (err) => {
+mongoose.connection.on('error', (err) => {
     console.error(err);
 })
 
 async function startServer() {
-    await connect(MONGO_URL);
+    //await mongoose.connect(MONGO_URL);
     
     server.listen(PORT, () => {
         console.log(`Listening on port ${PORT}`);

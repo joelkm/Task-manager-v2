@@ -1,7 +1,7 @@
-import { find, create, findByIdAndUpdate, deleteOne } from './users.mongo';
+const tasks = require("./tasks.mongo")
 
 async function getTasksFromUserId (userId) {
-    const tasks = await find({user: userId}, '_id name description when important') 
+    const tasks = await tasks.find({user: userId}, '_id name description when important') 
     if (!tasks) {
         console.log('No tasks found')
         return false;
@@ -11,7 +11,7 @@ async function getTasksFromUserId (userId) {
 
 async function addNewTask (task) {
     try {
-        const newTask = create({
+        const newTask = tasks.create({
             userId: task.userId,
             name: task.name,
             description: task.description,
@@ -27,8 +27,8 @@ async function addNewTask (task) {
 
 async function editTaskById (taskId, newTaskInfo) {
     try {
-        const nonEditedTask = await find({_id: taskId});
-        const editedTask = await findByIdAndUpdate({_id: taskId},{"name": newTaskInfo.name, "description": newTaskInfo.description, "userId": newTaskInfo.userId});
+        const nonEditedTask = await tasks.find({_id: taskId});
+        const editedTask = await tasks.findByIdAndUpdate({_id: taskId},{"name": newTaskInfo.name, "description": newTaskInfo.description, "userId": newTaskInfo.userId});
 
         if(nonEditedTask==editedTask){
             console.error('Task was not updated');
@@ -43,8 +43,8 @@ async function editTaskById (taskId, newTaskInfo) {
 
 async function deleteTaskById (taskId) {
     try {
-        const task = find({_id: taskId})
-        const deleted = await deleteOne({_id: taskId});
+        const task = tasks.find({_id: taskId})
+        const deleted = await tasks.deleteOne({_id: taskId});
 
         if(deleted.deletedCount == 0) {
             console.error('Nothing was deleted')
@@ -58,7 +58,7 @@ async function deleteTaskById (taskId) {
     }
 }
 
-export default {
+module.exports = {
     getTasksFromUserId,
     addNewTask,
     editTaskById,
