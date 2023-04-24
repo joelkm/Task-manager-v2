@@ -1,28 +1,27 @@
 const http = require('http');
 const mongoose = require('mongoose');
-
-// const MONGO_URL = 'mongodb+srv://retink-task:retink@cluster0.dklxm8g.mongodb.net/retink-task?retryWrites=true&w=majority'
-
-const app = require('./config/app');
+require('dotenv').config();
 
 const PORT = process.env.PORT || 8000;
+
+const app = require('./src/config/app');
 
 const server = http.createServer(app);
 
 mongoose.connection.once('open', () => {
-    console.log('Connection ready');
+    console.log('Succesful connection to DB');
 });
 
-mongoose.connection.on('error', (err) => {
-    console.error(err);
+mongoose.connection.on('error', (error) => {
+    console.error(`Failed connection to DB: ${error}`);
 })
 
 async function startServer() {
-    //await mongoose.connect(MONGO_URL);
-    
+await mongoose.connect(process.env.DATABASE_URL)
+
     server.listen(PORT, () => {
-        console.log(`Listening on port ${PORT}`);
-    });    
+        console.log(`Listening on PORT ${PORT}`);
+    })
 }
 
 startServer();
