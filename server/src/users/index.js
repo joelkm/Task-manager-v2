@@ -1,16 +1,17 @@
 const router = require('express').Router();
 const controller = require('./controller');
 
-router.get('/', getUser)
 
-router.post('/:id', postUser);
+router.post('/', controller.new);
 
-router.put("/login", controller.login);
+router.post("/login", controller.login);
 
-router.post("/password-reset", controller.resetPasswordEmail);
+router.post("/password-reset", controller.resetPassword);
 
-router.put("/password-reset/:id/:token", controller.changePassword);
+router.put("/password-reset/:id/:token", controller.updatePassword);
 
-router.put("/logout/:id", controller.logout);
+// router.put("/logout/:id", controller.logout);
+
+router.get('/:id', controller.getSingle);
 
 module.exports = router;
