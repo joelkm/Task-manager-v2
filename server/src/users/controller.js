@@ -5,18 +5,24 @@ module.exports = {
         try {
             let user = req.body;
             user = await service.registerUser(user);
-            res.status(201).json(user);
+            return res.status(201).json({data: user});
         } catch (error) {
             next(error);
         }
     },
     login : async () => {
-        
+        try {
+            const credentials = req.body;
+            const authToken = await loginUser(credentials);
+            return res.status(200).json({data: authToken});
+        } catch (error) {
+            next(error)
+        }
     },
     resetPassword: async () => {
         
     },
-    changePassword: async () => {
+    updatePassword: async () => {
         
     },
     getSingle: async () => {try {
