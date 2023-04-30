@@ -1,64 +1,13 @@
-// Custom error objects, more comfortable to handle authorization, validation...
-
-class AppError extends Error {
-
-  constructor(message, name) {
+module.exports = class AppError extends Error {
+  constructor(statusCode, message, isOperational = true, stack = '') {
     super(message);
-    this.name = name;
-    this.apiError = true;
+    this.statusCode = statusCode;
+    this.message = message;
+    this.isOperational = isOperational;
+    if (stack) {
+      this.stack = stack;
+    } else {
+      Error.captureStackTrace(this, this.constructor);
+    }
   }
-}
-
-
-class BadRequestError extends AppError {
-  
-  constructor(message) {
-    super(message);
-    this.name = "Bad Request";
-  }
-}
-
-
-class ValidationError extends AppError {
-  
-  constructor(message) {
-    super(message);
-    this.name = "Validation";
-  }
-}
-
-
-class NotFoundError extends AppError {
-  
-  constructor(message) {
-    super(message);
-    this.name = "Not Found";
-  }
-}
-
-
-class AuthorizationError extends AppError {
-
-  constructor(message) {
-    super(message);
-    this.name = "Authorization";
-  }
-}
-
-
-class ForbiddenError extends AppError {
-  
-  constructor(message) {
-    super(message);
-    this.name = "Forbidden";
-  }
-}
-
-module.exports = {
-  AppError,
-  BadRequestError,
-  ValidationError,
-  NotFoundError,
-  AuthorizationError,
-  ForbiddenError,
 };
