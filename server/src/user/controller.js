@@ -1,7 +1,7 @@
 const service = require('./service');
 
 module.exports = {
-    new: async () => {
+    new: async (req, res, next) => {
         try {
             let user = req.body;
             user = await service.registerUser(user);
@@ -10,7 +10,8 @@ module.exports = {
             next(error);
         }
     },
-    login : async () => {
+    // TO - DO: NO USE
+    login : async (req, res, next) => {
         try {
             const credentials = req.body;
             const authToken = await loginUser(credentials);
@@ -19,18 +20,26 @@ module.exports = {
             next(error)
         }
     },
-    resetPassword: async () => {
+    resetPassword: async (req, res, next) => {
         
     },
-    updatePassword: async () => {
+    updatePassword: async (req, res, next) => {
         
     },
-    getSingle: async () => {try {
-        
-            const userId = req.params.id;
-            const user = await service.retrieveUser(userId);
+    getSingle: async (req, res, next) => {
+    try {
+        const userId = req.params.id;
+        const user = await service.retrieveUser(userId);
     } catch (error) {
         next(error);
     }
+    },
+    logout: async (req, res, next) => {
+        try {
+            req.logout();
+            res.redirect(200, '/login')
+        } catch (error) {
+            next(error)
+        }
     }
 }

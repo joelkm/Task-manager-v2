@@ -1,5 +1,5 @@
 const {createTask, fetchTasksBy, updateTask, deleteTask} = require("./model");
-const AppError = require("../config/app-error");
+const AppError = require("../common/app-error");
 
 module.exports = {
     addTask: async (data) => {

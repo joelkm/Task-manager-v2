@@ -1,8 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 const passport = require("passport")
+const PassportLocal = require("passport-local").Strategy;
+
 const handleError = require('../middlewares/error-handler');
-const { NotFoundError } = require('./app-error');
+const { NotFoundError } = require('../common/app-error');
+
 
 const corsOptions = {
     origin: "*",
@@ -17,7 +20,7 @@ app.use(cors(corsOptions));
 
 app.use(
   session({
-    secret: 'secret',
+    secret: 'secret', // .ENV
     resave: true,
     saveUninitialized: true
   })
