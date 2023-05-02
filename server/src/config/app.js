@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const passport = require("passport")
 const handleError = require('../middlewares/error-handler');
 const { NotFoundError } = require('./app-error');
 
@@ -14,9 +15,18 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cors(corsOptions));
 
-app.use("/", require("../../../../allwell-aut/server/src/views"));
+app.use(
+  session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+  })
+);
 
-app.use("/user", require("../../../../allwell-aut/server/src/user"));
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use("/user", require("../user"));
 
 app.use("*", (req, res, next) => {
   next(new NotFoundError(`Could not handle ${req.method} request in '${req.protocol + '://' + req.get('host') + req.originalUrl}'`));
