@@ -1,21 +1,27 @@
 {
-  "name": "to-do-list.me",
+  "name": "server",
   "version": "1.0.0",
-  "description": "I'm currently solving some callback hell issues surrounding the \"Edit\" and \"Delete\" functions. The app will be back live when everything is fixed.",
+  "description": "",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "npm run build --prefix client && npm start --prefix server"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JoelKM/to-do-list.me.git"
+    "start": "node src/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JoelKM/to-do-list.me/issues"
-  },
-  "homepage": "https://github.com/JoelKM/to-do-list.me#readme"
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.8.4",
+    "nodemailer": "^6.9.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0"
+  }
 }
