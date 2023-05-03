@@ -1,4 +1,4 @@
-const handleError = (err, res) => {
+const handleError = (err, req, res) => {
   console.error(err)
   
   if (!err.isOperational) {

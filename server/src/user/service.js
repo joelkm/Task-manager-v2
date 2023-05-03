@@ -1,6 +1,7 @@
 const AppError = require("../common/app-error");
 const passport = require("../config/auth-config");
 const { newUser, fetchUserBy } = require("./model");
+const { encryptPassword } = require('./helpers/encrypt')
 
 module.exports = {
     registerUser: async (data) => {
