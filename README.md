@@ -1,6 +1,6 @@
-# To-do list
+# Auth + To-do list project
 
-A basic crud app for a to-do app with an integrated session system.
+A basic crud app for a to-do app with an integrated session system. You can register, login to the app and reset your password. Once in the app you can create, view, edit and delete tasks. Each user has access to their tasks only.
 
 ## Frontend:
 
