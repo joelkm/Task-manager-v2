@@ -4,7 +4,6 @@ module.exports = {
     new: async (req, res, next) => {
         try {
             let user = req.body;
-            console.log(user);
             await service.registerUser(user);
             return res.redirect('/login')
         } catch (error) {
