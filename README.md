@@ -2,9 +2,9 @@
 
 A basic crud app for a to-do app with an integrated session system. You can register, login to the app and reset your password. Once in the app you can create, view, edit and delete tasks. Each user has access to their tasks only.
 
-## Frontend:
+## Frontend (In progress):
 
-React multi-page app. I started working with ejs, then moved to React. I'm not sure if I am handling views adequately, I send the same html over and over with the views requests and React renders the adequate view depending on the window.location property.
+React multi-page app. I started working with ejs, then moved to React. I'm not sure if I am handling views adequately, I send the same html over and over and React renders the adequate view depending on the route using react router.
 
 ## Backend:
 
