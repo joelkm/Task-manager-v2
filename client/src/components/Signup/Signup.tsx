@@ -1,4 +1,4 @@
-function Signup() {
+function Signup() {/*
   const login = document.getElementById('login-form');
   login.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -20,7 +20,7 @@ function Signup() {
       if(data.error) {
           document.getElementById('login-error').style.display = 'block';
       }
-  }
+  });*/
 
   return (
     <div className="signup">

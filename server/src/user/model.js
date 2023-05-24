@@ -1,35 +1,31 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
-const usersSchema = new mongoose.Schema({
-    email: String,
-    password: String
+const userSchema = new mongoose.Schema({
+    name: { type: "String", required: true },
+    email: { type: "String", unique: true, required: true },
+    password: { type: "String", required: true },
+    isAdmin: {
+        type: Boolean,
+        required: true,
+        default: false,
+      }
+    },
+    { timestaps: true }
+);
+
+userSchema.methods.matchesPassword = async (sentPassword, truePassword) => {
+    return await bcrypt.compare(sentPassword, truePassword);
+};
+  
+userSchema.pre("save", async (next) => {
+    if (!this.isModified) {
+        next();
+    }
+
+    this.password = await bcrypt.hash(password, 10);
 });
 
-const db = mongoose.model('user', usersSchema);
+const User = mongoose.model('user', userSchema);
 
-
-
-module.exports = {
-    fetchUserBy: async (field, value) => {
-        let user
-        switch (field) {
-            case 'email':
-                user = await db.findOne({email: value});
-                if(user == null) return false;
-                break;
-            case 'id':
-                user = await db.findOne({_id: value});
-                if(user == null) return false;
-                break;
-            default:
-                user = false;
-                break;
-        }
-        return user;
-    },
-    newUser: async (data) => {
-        return await db.create({
-            ...data
-        });
-    }
-}
+module.exports = User;

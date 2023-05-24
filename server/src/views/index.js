@@ -12,12 +12,4 @@ router.get("/", checkSession, (req, res) => {
     res.sendFile(path.join(distPath, "index.html"));
 });
 
-router.get("/login", checkNoSession, (req, res) => {
-    res.sendFile(path.join(distPath, "index.html"));
-});
-
-router.get("/register", checkNoSession, (req, res) => {
-    res.sendFile(path.join(distPath, "index.html"));
-});
-
 module.exports = router;

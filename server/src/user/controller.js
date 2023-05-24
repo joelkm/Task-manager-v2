@@ -1,3 +1,4 @@
+const AppError = require('../common/app-error');
 const service = require('./service');
 
 module.exports = {
@@ -36,7 +37,9 @@ module.exports = {
     },
     logout: async (req, res, next) => {
         try {
-            req.logout();
+            req.logout((error) => {
+                if(error) throw new AppError(500, error)
+            });
             res.redirect(200, '/login')
         } catch (error) {
             next(error)
