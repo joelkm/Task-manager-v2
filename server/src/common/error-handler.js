@@ -6,7 +6,9 @@ const handleError = (err, req, res) => {
     process.exit(1);
   }
   return res.status(err.statusCode).json({
-    message: err.message,
+    data: {
+      error: err.message
+    }
   });
 };
   
