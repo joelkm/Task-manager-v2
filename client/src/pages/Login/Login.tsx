@@ -3,22 +3,32 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
+type FormValues = {
+  email: string,
+  password: string,
+  apiError: string
+}
 
 function Login() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const config = {
-    headers: {
-      "Content-type": "application/json",
-    },
-  };
-  const onSubmit = async (data: any) => {
-    const response = await axios.post(
-      "/api/user/login",
-      { email: data.email, password: data.password },
-      config
-    );
+  const { register, handleSubmit, setError, formState: { errors } } = useForm<FormValues>();
+  const navigate = useNavigate();
 
-    if(response.data.error) errors.submit = response.data.error;
+  const onSubmit = async (data: any) => {
+    axios.post("/user/login",
+      { email: data.email, password: data.password }, {
+      headers: {
+        "Content-type": "application/json",
+      },
+    }
+    )
+    .then((response) => {
+      navigate('/');
+    })
+    .catch( (error) => {
+      console.log(error);
+      
+      setError('apiError', { type: 'server side', message: error.response.data.data.error }); // Someone has to fix this
+    })
   }
 
 
@@ -32,7 +42,7 @@ function Login() {
         {errors.password && <span>Please, introduce your password</span>}
         <h4>have you forgot your password? click <a href="/password-reset">here</a></h4>
         <input value="Log In" type="submit"/>
-        {errors.submit && <span>errors.submit</span>}
+        {errors.apiError && <span className="error-message">{errors.apiError.message}</span>}
         <a href="/signup">Register</a>
       </form>
     </div>

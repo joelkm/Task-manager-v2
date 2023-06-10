@@ -8,7 +8,7 @@ const distPath = path.join(__dirname, "..", "..", "..", "client", "dist");
 
 router.use(express.static(distPath, {index: false}));
 
-router.get("/", checkSession, (req, res) => {
+router.get("/*", (req, res) => {
     res.sendFile(path.join(distPath, "index.html"));
 });
 

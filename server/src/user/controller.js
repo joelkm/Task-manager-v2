@@ -14,9 +14,8 @@ module.exports = {
     // TO - DO: NO USE
     login : async (req, res, next) => {
         try {
-            const credentials = req.body;
-            const authToken = await loginUser(credentials);
-            return res.status(200).json({data: authToken});
+            if(req.user = null) throw new AppError(401, 'Invalid email or password')
+            res.redirect('/')
         } catch (error) {
             next(error)
         }

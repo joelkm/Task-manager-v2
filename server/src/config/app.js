@@ -1,14 +1,19 @@
 const express = require("express");
 const session = require('express-session');
-const passport = require("passport")
+const passport = require("passport");
+const cors = require('cors');
 
 const handleError = require('../common/error-handler');
 const AppError = require("../common/app-error");
+const corsOptions = {
+  origin: '*',
+}
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+app.use(cors(corsOptions))
 
 app.use(
   session({
