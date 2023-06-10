@@ -3,7 +3,10 @@ const { addTask, getTasksFromUser, updateSelectedTask, deleteSelectedTask } = re
 module.exports = {
     new: async (req, res, next) => {
         try {
-            let task = req.body;
+            let task = {
+                user: req.user.id,
+                ...req.body
+            };
             task = await addTask(task);
             res.status(201).json({
                 data: task

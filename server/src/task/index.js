@@ -1,14 +1,14 @@
 const router = require('express').Router();
 const controller = require('./controller');
+const { checkLoged } = require('../common/authCheck');
 
 
-router.post('/', controller.new);
+router.post('/', checkLoged, controller.new);
 
-router.get('/:userId', controller.show);
+router.get('/', checkLoged, controller.show);
 
-router.put('/:id', controller.update);
+router.put('/:id', checkLoged, controller.update);
 
-router.delete('/:id', controller.remove);
-
+router.delete('/:id', checkLoged, controller.remove);
 
 module.exports = router;
