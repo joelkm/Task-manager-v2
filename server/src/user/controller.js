@@ -39,7 +39,7 @@ module.exports = {
             req.logout((error) => {
                 if(error) throw new AppError(500, error)
             });
-            res.redirect(200, '/login')
+            res.redirect('/')
         } catch (error) {
             next(error)
         }

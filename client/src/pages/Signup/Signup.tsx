@@ -13,12 +13,12 @@ function Signup() {
 
   const { register, handleSubmit, setError, formState: { errors } } = useForm<FormValues>();
   const navigate = useNavigate();
-  const onSubmit = async (data: any) => {
-    axios.post("/user/register",
-      { email: data.email, password: data.password }, {
-      headers: {
-        "Content-type": "application/json",
-      },
+async function signup(data:any) {
+  return axios.post("/user/register",
+    { email: data.email, password: data.password }, {
+    headers: {
+      "Content-type": "application/json",
+    },
     }
     )
     .then((response) => {
@@ -27,7 +27,9 @@ function Signup() {
     .catch( (error) => {      
       setError('apiError', { type: 'server side', message: error.response.data.data.error }); // Someone has to fix this
     })
-  }
+}
+
+  const onSubmit = async (data: any) => await signup(data);
 
   return (
     <div className="login">

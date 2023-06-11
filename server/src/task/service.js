@@ -10,7 +10,6 @@ module.exports = {
     },
     getTasksFromUser: async (userId) => {
         const tasks = await Task.find({user: userId}); 
-        if(!tasks) throw new AppError(404, "Task doesn't exist"); 
         
         return tasks;
     },

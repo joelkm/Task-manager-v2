@@ -13,8 +13,8 @@ function Login() {
   const { register, handleSubmit, setError, formState: { errors } } = useForm<FormValues>();
   const navigate = useNavigate();
 
-  const onSubmit = async (data: any) => {
-    axios.post("/user/login",
+  async function login(data: any) {
+    return axios.post("/user/login",
       { email: data.email, password: data.password }, {
       headers: {
         "Content-type": "application/json",
@@ -32,14 +32,16 @@ function Login() {
   }
 
 
+  const onSubmit = async(data: any) => await login(data);
+
   return (
     <div className="login">
       <form onSubmit={handleSubmit(onSubmit)}>
         <h2>Insert your credentials</h2>
         <input type="email" placeholder="Email" {...register("email", {required: true})}/>
-        {errors.email && <span>Please, introduce your email</span>}
+        {errors.email && <span className="error-message">Please, introduce your email</span>}
         <input type="password" placeholder="Pasword" {...register("password", {required: true})}/>
-        {errors.password && <span>Please, introduce your password</span>}
+        {errors.password && <span className="error-message">Please, introduce your password</span>}
         <h4>have you forgot your password? click <a href="/password-reset">here</a></h4>
         <input value="Log In" type="submit"/>
         {errors.apiError && <span className="error-message">{errors.apiError.message}</span>}

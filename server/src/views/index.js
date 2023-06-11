@@ -7,8 +7,7 @@ const distPath = path.join(__dirname, "..", "..", "..", "client", "dist");
 
 router.use(express.static(distPath, {index: false}));
 
-router.get("/", checkLoged, (req, res) => {
-    if (!req.user) res.redirect('/login') 
+router.get("/", checkLoged, (req, res) => { 
     res.sendFile(path.join(distPath, "index.html"));
 });
 

@@ -26,11 +26,11 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use("/", require("../views"));
-
 app.use("/user", require("../user"));
 
 app.use("/task", require("../task"));
+
+app.use("/", require("../views"));
 
 app.use("*", (req, res, next) => {
   next(new AppError(404, `Could not handle ${req.method} request in '${req.protocol + '://' + req.get('host') + req.originalUrl}'`));
