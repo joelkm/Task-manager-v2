@@ -11,8 +11,17 @@ function Task(props: any) {
   return (
     <div className='task'>
         <h3>{props.taskInfo.title}</h3>
-        <p>{dayjs(props.taskInfo.date).format("DD/MM/YYYY")}</p>
-        <p>{props.taskInfo.description}</p>
+        <div>
+          <h4>Date: </h4>
+          <p>{dayjs(props.taskInfo.date).format("DD/MM/YYYY")}</p>
+        </div>
+        <div>
+          <h4>Description:</h4>
+          <p>{props.taskInfo.description}</p>
+        </div>
+        <div className='action'>
+          
+        </div>
     </div>
   )
 }
