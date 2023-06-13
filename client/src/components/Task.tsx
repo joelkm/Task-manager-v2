@@ -1,4 +1,5 @@
 import React from 'react'
+import dayjs from "dayjs";
 
 // TO - DO: MAKE A MODULE
 type TaskType = {
@@ -8,8 +9,10 @@ type TaskType = {
 
 function Task(props: any) {
   return (
-    <div>
-        <h1>{props.taskInfo}</h1>
+    <div className='task'>
+        <h3>{props.taskInfo.title}</h3>
+        <p>{dayjs(props.taskInfo.date).format("DD/MM/YYYY")}</p>
+        <p>{props.taskInfo.description}</p>
     </div>
   )
 }

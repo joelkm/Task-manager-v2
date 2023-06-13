@@ -105,13 +105,13 @@ function Homepage() {
         {errors.apiError && <span className="error-message">{errors.apiError.message}</span>}
       </form>
       <h2>Your tasks</h2>
-      <div>
+      <div className='task-list'>
         {
          status == 'loading' && <h3>Refreshing...</h3> 
         }
         {
           tasks ? tasks.map((task:any) => (
-            <h3>{task.title}</h3>
+            <Task taskInfo={task}></Task>
           )) : <h3>No tasks found</h3>
         } 
       </div>
