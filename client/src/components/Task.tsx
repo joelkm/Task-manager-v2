@@ -20,7 +20,12 @@ function Task(props: any) {
           <p>{props.taskInfo.description}</p>
         </div>
         <div className='action'>
-          
+          <button>
+            <i className="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button>
+            <i className="fa-solid fa-trash"></i>
+          </button>
         </div>
     </div>
   )

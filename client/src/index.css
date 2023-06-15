@@ -4,24 +4,32 @@
    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+body{
+    background: rgb(134,134,143);
+    background: radial-gradient(circle, rgba(134,134,143,1) 0%, rgba(67,67,83,1) 51%, rgba(32,33,33,1) 100%);
+}
+
 form {
     display: flex;
     flex-direction: column;
     padding: 15px 30px;
-    border: 2px solid #F2F2F2;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 2px solid #1c1c1c;
     border-radius: 9px;
     width: 60vw;
+    background-color: white;
 }
 input {
     width: 100%;
     height: 50px;
     margin-top: 30px;
-    border: 2px solid #F2F2F2;
+    border: 2px solid #1c1c1c;
     border-radius: 6px;
-    color: #757575;
+    color: #1c1c1c;
 }
 input:hover {
-    background-color: #fcfcfc;
+    background-color: #b0b0b0;
     box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -46,14 +54,15 @@ input:hover {
 }
 
 .task {
-    height: 300px;
+    min-height: 300px;
     width: 80%;
-    border: 2px solid #d6d6d6;
+    border: 2px solid #1c1c1c;
     border-radius: 9px;
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
     margin-top: 15px;
+    background-color: white;
 }
 
 .task h3 {
@@ -69,8 +78,8 @@ button {
     background-color: rgb(51, 53, 53);
 	color: inherit;
 	border: none;
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 40px;
     color: white;
     align-self: center;
     margin-top: 20px;
@@ -81,3 +90,34 @@ button {
 	cursor: pointer;
 	outline: inherit;
 }
+
+.action {
+    align-self: center;
+    align-content: center;
+    justify-content: space-evenly;
+    display: flex;
+    width: 40%;
+}
+
+i {
+    color: white;
+}
+
+h1, h2 {
+    color: #1c1c1c;
+}
+
+.submit {
+    border-color: #1c1c1c;
+    color: #000000;
+    background-color: white;
+}
+
+.submit:hover {
+    background-color: #1c1c1c;
+    color: white;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(0, 0, 0);
+    opacity: 1; /* Firefox */
+  }

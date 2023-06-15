@@ -91,8 +91,8 @@ function Homepage() {
 
   return (
     <div>
-      <button onClick={() => logout()}>Logout</button>
-      <h1>Homepage</h1>
+      <button onClick={() => logout()}><i className="fa-solid fa-right-from-bracket"></i></button>
+      <h1>HOMEPAGE</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <h2>Create a task</h2>
         <input type="title" placeholder="Title" {...register("title", {required: true})}/>
@@ -101,10 +101,10 @@ function Homepage() {
         {errors.description && <span className='error-message'>Please, introduce a description</span>}
         <input type="date" {...register("date", {required: true})}/>
         {errors.date && <span className='error-message'>Please, introduce a date</span>}
-        <input value="Create task" type="submit"/>
+        <input value="Create task" type="submit" className='submit'/>
         {errors.apiError && <span className="error-message">{errors.apiError.message}</span>}
       </form>
-      <h2>Your tasks</h2>
+      <h2>YOUR TASKS</h2>
       <div className='task-list'>
         {
          status == 'loading' && <h3>Refreshing...</h3> 

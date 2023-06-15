@@ -43,7 +43,7 @@ function Login() {
         <input type="password" placeholder="Pasword" {...register("password", {required: true})}/>
         {errors.password && <span className="error-message">Please, introduce your password</span>}
         <h4>have you forgot your password? click <a href="/password-reset">here</a></h4>
-        <input value="Log In" type="submit"/>
+        <input value="Log In" type="submit" className="submit"/>
         {errors.apiError && <span className="error-message">{errors.apiError.message}</span>}
         <a href="/signup">Register</a>
       </form>
