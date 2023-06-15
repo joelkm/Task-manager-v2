@@ -2,11 +2,12 @@
    color: rgb(26, 26, 26);
    margin: 0px;
    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-size: 16px;
 }
 
 body{
-    background: rgb(134,134,143);
-    background: radial-gradient(circle, rgba(134,134,143,1) 0%, rgba(67,67,83,1) 51%, rgba(32,33,33,1) 100%);
+    background: rgb(247,183,215);
+    background: linear-gradient(90deg, rgba(247,183,215,1) 0%, rgba(190,215,228,1) 100%);
 }
 
 form {
@@ -24,7 +25,7 @@ input {
     width: 100%;
     height: 50px;
     margin-top: 30px;
-    border: 2px solid #1c1c1c;
+    border: 2px solid #d0d0d0;
     border-radius: 6px;
     color: #1c1c1c;
 }
@@ -103,18 +104,29 @@ i {
     color: white;
 }
 
-h1, h2 {
+h1{
     color: #1c1c1c;
+    font-size: 32px;
+}
+
+h2 {
+    color: #1c1c1c;
+    font-size: 24px;
 }
 
 .submit {
-    border-color: #1c1c1c;
-    color: #000000;
-    background-color: white;
+    border: none;
+    border-radius: 999px;
+    color: #fefefe;
+    background-color: #1c1c1c;
+    font-size: 18px;
+    width: 40%;
+    align-self: center;
 }
 
 .submit:hover {
-    background-color: #1c1c1c;
+    cursor: pointer;
+    background-color: #2e2f34;
     color: white;
 }
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */

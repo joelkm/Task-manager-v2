@@ -104,7 +104,7 @@ function Homepage() {
         <input value="Create task" type="submit" className='submit'/>
         {errors.apiError && <span className="error-message">{errors.apiError.message}</span>}
       </form>
-      <h2>YOUR TASKS</h2>
+      <h2>Your Tasks</h2>
       <div className='task-list'>
         {
          status == 'loading' && <h3>Refreshing...</h3> 
