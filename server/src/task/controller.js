@@ -40,7 +40,7 @@ module.exports = {
     },
     remove: async (req, res, next) => {
         try {
-            const taksId = req.params.id;
+            const taskId = req.params.id;
             const deleted = await deleteSelectedTask(taskId);
             return res.status(200).json({
                 data: deleted

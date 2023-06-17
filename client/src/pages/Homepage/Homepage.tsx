@@ -39,7 +39,7 @@ function Homepage() {
   })
 
   async function createTask(data:any) {
-    const tasks = await axios.post("/task", {
+    const task = await axios.post("/task", {
       title: data.title,
       description: data.description,
       date: data.date,
@@ -51,10 +51,10 @@ function Homepage() {
     .then((res) => res.data)
     .catch((error) => {
       setError('apiError', { type: 'server side', message: error.res.data.data.error }); // Someone has to fix this
-    })
-    console.log(tasks);
+    })    
+    console.log(task);    
     
-    return tasks
+    return task
   }
 
   async function getTasks(data:any) {
@@ -63,9 +63,7 @@ function Homepage() {
         "Content-type": "application/json",
       },
     })
-    .then((res) => {
-      console.log(res.data.data);
-      
+    .then((res) => {      
       return res.data.data
   })
     .catch((error) => {
