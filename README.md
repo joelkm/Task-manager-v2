@@ -2,6 +2,8 @@
 
 A basic crud app for a to-do app with an integrated session system. You can register, login to the app and reset your password. Once in the app you can create, view, edit and delete tasks. Each user has access to their tasks only.
 
+https://task-manager-mx3w.onrender.com/
+
 PLEASE, be patient, I'm using render's free tier for deployment, so the first API calls tend to go slow (reeeeeally slow). The first web load and some UI refreshes will take a bit. Sorry for the inconvenience 🙏
 
 ## Frontend:
