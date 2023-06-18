@@ -14,7 +14,7 @@ module.exports = {
         return tasks;
     },
     updateSelectedTask: async (taskId, task) => {
-        const oldTask = await fetchTasksBy("taskId", taskId);
+        const oldTask = await Task.findById(taskId);
         if(!oldTask) throw new AppError(404, "Task doesn't exist")
         
         const updatedTask = await Task.findByIdAndUpdate(taskId, {...task}, {returnDocument: 'after'});

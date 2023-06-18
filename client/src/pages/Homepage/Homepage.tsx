@@ -52,7 +52,6 @@ function Homepage() {
     .catch((error) => {
       setError('apiError', { type: 'server side', message: error.res.data.data.error }); // Someone has to fix this
     })    
-    console.log(task);    
     
     return task
   }
