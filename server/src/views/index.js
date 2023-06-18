@@ -3,7 +3,7 @@ const router = express.Router();
 const path = require('path');
 const { checkLoged, checkNotLoged } = require('../common/authCheck');
 
-const distPath = path.join(__dirname, "..", "..", "..", "client", "dist");
+const distPath = path.join(__dirname, "..", "..", "dist");
 
 router.use(express.static(distPath, {index: false}));
 
