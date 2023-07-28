@@ -1,19 +1,19 @@
 const AppError = require("../common/app-error");
-const passport = require("../config/auth-config");
 const User = require("./model");
 const Space = require("../space/model");
 const Task = require("../task/model");
 
-async function userExists() {
-    return await User.findOne({ email: data.email });
+async function userExists(email) {
+    return await User.findOne({ email: email });
 }
 
 module.exports = {
     registerUser: async (data) => {
-        if (await userExists) throw new AppError(400, "User already exists");
+        if (await userExists(data.email)) throw new AppError(400, "User already exists");
 
-        const userInfo = await User.create({ ...data },);
+        const userInfo = await User.create({ ...data });
         if (!userInfo) throw new AppError(400, "User was not created");
+
 
         const personalSpace = await Space.create({
             name: `${userInfo.name}'s Space`,
@@ -29,16 +29,6 @@ module.exports = {
         })
         if (!tutorialTask) throw new AppError(400, "Personal space was not created");
 
-
         return userInfo;
-        /*
-        return {
-            user: {
-                name: userInfo.name,
-                email: userInfo.email,
-                isAdmin: userInfo.isAdmin
-            }
-        }
-        */
     }
 }

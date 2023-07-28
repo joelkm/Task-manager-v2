@@ -1,18 +1,18 @@
 const router = require('express').Router();
 const controller = require('./controller');
-const { checkLoged } = require('../common/auth-check');
+const { checkLoged, checkSpaceAdmin } = require('../common/auth-check');
 
 
 router.post('/', checkLoged, controller.new);
 
 router.get('/', checkLoged, controller.show);
 
-router.put('/:id', checkLoged, controller.update);
+router.put('/:id', checkLoged, checkSpaceAdmin, controller.update);
 
-router.put('/:id/add', checkLoged, controller.addMember);
+router.put('/:id/add', checkLoged, checkSpaceAdmin, controller.addMember);
 
-router.put('/:id/remove', checkLoged, controller.removeMember);
+router.put('/:id/remove', checkLoged, checkSpaceAdmin, controller.removeMember);
 
-router.delete('/:id', checkLoged, controller.delete);
+router.delete('/:id', checkLoged, checkSpaceAdmin, controller.delete);
 
 module.exports = router;

@@ -28,7 +28,7 @@ app.use(passport.session());
 
 app.use("/user", require("../user"));
 
-app.use("/space", require("../space"));
+// app.use("/space", require("../space"));
 
 app.use("/task", require("../task"));
 

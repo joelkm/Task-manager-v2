@@ -14,7 +14,7 @@ userSchema.methods.matchesPassword = async function (sentPassword) {
 };
 
 userSchema.pre("save", async function (next) {
-    if (!this.isModified) {
+    if (!this.isModified) { // (?) Compare to chat -> refers to prevent this on update?
         next();
     }
     this.password = await bcrypt.hash(this.password, 10);
