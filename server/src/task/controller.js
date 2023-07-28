@@ -17,8 +17,8 @@ module.exports = {
     },
     show: async (req, res, next) => {
         try {
-            const userId = req.user._id;
-            const tasks = await getTasksFromUser(userId)
+            const spaceId = req.params.spaceId;
+            const tasks = await getTasksFromSpace(spaceId);
             return res.status(200).json({
                 data: tasks
             })

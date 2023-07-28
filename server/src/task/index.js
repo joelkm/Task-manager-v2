@@ -5,7 +5,7 @@ const { checkLoged } = require('../common/auth-check');
 
 router.post('/', checkLoged, controller.new);
 
-router.get('/', checkLoged, controller.show);
+router.get('/:spaceId', checkLoged, controller.show);
 
 router.put('/:id', checkLoged, controller.update);
 

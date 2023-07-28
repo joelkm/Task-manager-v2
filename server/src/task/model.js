@@ -1,17 +1,21 @@
 const mongoose = require('mongoose');
 
-const tasksSchema = new mongoose.Schema({
-    creator: [{ type: mongoose.Schema.Types.ObjectId, ref: 'user' }],
-    assignee: [{ type: mongoose.Schema.Types.ObjectId, ref: 'user' }],
-    name: String,
-    description: String,
+const taskSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    description: { type: String, required: true },
+    author: { type: mongoose.Schema.Types.ObjectId, ref: 'user', required: true },
+    assignees: [{ type: mongoose.Schema.Types.ObjectId, ref: 'user' }],
     date: Date,
     state: String,
-    space: [{ type: mongoose.Schema.Types.ObjectId, ref: 'user' }]
+    space: { type: mongoose.Schema.Types.ObjectId, ref: 'space', required: true }
 },
     { timestamps: true }
 );
 
-const Task = mongoose.model('task', tasksSchema);
+taskSchema.pre("save", async function (next) {
+    this.state = "Not Started";
+});
+
+const Task = mongoose.model('task', taskSchema);
 
 module.exports = Task;
