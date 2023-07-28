@@ -6,7 +6,7 @@ module.exports = {
         try {
             let user = req.body;
             await service.registerUser(user);
-            return res.redirect('/login')
+            res.redirect('/login')
         } catch (error) {
             next(error);
         }

@@ -1,15 +1,17 @@
-const { addTask, getTasksFromUser, updateSelectedTask, deleteSelectedTask } = require('./service');
+const service = require('./service');
 
 module.exports = {
     new: async (req, res, next) => {
         try {
             let task = {
-                user: req.user._id,
+                author: req.user._id,
+                space: req.params.spaceId,
                 ...req.body
             };
-            task = await addTask(task);
+            task = await service.addTask(task);
+
             res.status(201).json({
-                data: task
+                ...task
             })
         } catch (error) {
             next(error)
@@ -18,9 +20,11 @@ module.exports = {
     show: async (req, res, next) => {
         try {
             const spaceId = req.params.spaceId;
-            const tasks = await getTasksFromSpace(spaceId);
-            return res.status(200).json({
-                data: tasks
+
+            const tasks = await service.getTasksFromSpace(spaceId);
+
+            res.status(200).json({
+                ...tasks
             })
         } catch (error) {
             next(error);
@@ -29,10 +33,12 @@ module.exports = {
     update: async (req, res, next) => {
         try {
             const taskId = req.params.id;
-            const task = req.body
-            const updated = await updateSelectedTask(taskId, task)
-            return res.status(200).json({
-                data: updated
+            const task = req.body;
+
+            const updated = await service.updateSelectedTask(taskId, task)
+
+            res.status(200).json({
+                ...updated
             })
         } catch (error) {
             next(error)
@@ -41,9 +47,11 @@ module.exports = {
     remove: async (req, res, next) => {
         try {
             const taskId = req.params.id;
-            const deleted = await deleteSelectedTask(taskId);
-            return res.status(200).json({
-                data: deleted
+
+            const deleted = await service.deleteSelectedTask(taskId);
+
+            res.status(200).json({
+                ...deleted
             })
         } catch (error) {
             next(error);

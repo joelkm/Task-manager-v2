@@ -3,7 +3,7 @@ const controller = require('./controller');
 const { checkLoged } = require('../common/auth-check');
 
 
-router.post('/', checkLoged, controller.new);
+router.post('/:spaceId', checkLoged, controller.new);
 
 router.get('/:spaceId', checkLoged, controller.show);
 
