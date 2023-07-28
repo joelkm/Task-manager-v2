@@ -12,11 +12,21 @@ module.exports = {
             next(error);
         }
     },
+    showUserSpaces: async (req, res, next) => {
+        const userId = req.user._id;
+
+        const spaces = await service.retrieveUserSpaces(userId);
+
+        res.status(200).json({
+            ...spaces
+        })
+    },
     update: async (req, res, next) => {
         try {
-            const spaceInfo = req.body;
+            const spaceId = req.params.id
+            const { name } = req.body;
 
-            const space = await service.updateSpace(spaceInfo)
+            const space = await service.renameSpace(spaceId, name);
 
             res.status(200).json({
                 ...space

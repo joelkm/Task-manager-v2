@@ -5,11 +5,13 @@ const { checkLoged, checkSpaceAdmin } = require('../common/auth-check');
 
 router.post('/', checkLoged, controller.new);
 
-router.get('/', checkLoged, controller.show);
+router.get('/', checkLoged, controller.showUserSpaces);
 
 router.put('/:id', checkLoged, checkSpaceAdmin, controller.update);
 
-router.put('/:id/invite', checkLoged, checkSpaceAdmin, controller.inviteMember);
+router.put('/:id/invite', checkLoged, checkSpaceAdmin, controller.addMembers);
+
+// router.put('/:id/invite', checkLoged, checkSpaceAdmin, controller.inviteMembers);
 
 router.put('/:id/remove', checkLoged, checkSpaceAdmin, controller.removeMember);
 
