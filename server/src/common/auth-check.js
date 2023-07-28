@@ -13,6 +13,7 @@ async function isSpaceAdmin(user, spaceId) {
     else return false;
 }
 
+
 module.exports = {
     checkLoged: (req, res, next) => {
         if (isLogged(req)) next();

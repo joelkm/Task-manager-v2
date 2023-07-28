@@ -9,7 +9,7 @@ router.get('/', checkLoged, controller.showUserSpaces);
 
 router.put('/:id', checkLoged, checkSpaceAdmin, controller.update);
 
-router.put('/:id/invite', checkLoged, checkSpaceAdmin, controller.addMembers);
+router.put('/:id/invite', checkLoged, checkSpaceAdmin, controller.addMember);
 
 // router.put('/:id/invite', checkLoged, checkSpaceAdmin, controller.inviteMembers);
 

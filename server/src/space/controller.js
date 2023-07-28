@@ -36,12 +36,12 @@ module.exports = {
         }
 
     },
-    addMembers: async (req, res, next) => {
+    addMember: async (req, res, next) => {
         try {
             const spaceId = req.params.id;
             const guests = req.body;
 
-            const added = await service.includeMembers(spaceId, guests);
+            const added = await service.includeMember(spaceId, guests);
 
             res.status(200).json({
                 ...added
@@ -69,8 +69,9 @@ module.exports = {
         try {
             const spaceId = req.params.id;
             const { memberId } = req.body;
+            const { adminId } = req.user._id;
 
-            const removed = await service.excludeMember(spaceId, memberId);
+            const removed = await service.excludeMember(spaceId, memberId, adminId);
 
             res.status(200).json({
                 ...removed
