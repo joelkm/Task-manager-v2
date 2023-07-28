@@ -14,7 +14,6 @@ module.exports = {
         const userInfo = await User.create({ ...data });
         if (!userInfo) throw new AppError(400, "User was not created");
 
-
         const personalSpace = await Space.create({
             name: `${userInfo.name}'s Space`,
             members: [userInfo._id]
