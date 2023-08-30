@@ -1,10 +1,11 @@
-# Auth + To-do list project
+# Task Manager V2
 
-A basic crud app for a to-do app with an integrated session system. You can register, login to the app and reset your password. Once in the app you can create, view, edit and delete tasks. Each user has access to their tasks only.
-
-https://task-manager-mx3w.onrender.com/
-
-PLEASE, be patient, I'm using render's free tier for deployment, so the first API calls tend to go slow (reeeeeally slow). The first web load and some UI refreshes will take a bit. Sorry for the inconvenience 🙏
+THis is the secon version of this other project: https://github.com/joelkm/Task-manager-v1
+Here are some thing that I'm implementing:
+- New UI
+- Collaborative spaces
+- E-mail notifications
+- Desktop app version
 
 ## Frontend:
 
